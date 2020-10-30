@@ -9,20 +9,14 @@ public class FabbricaAUDI extends FabbricaAuto
 	private static FabbricaAUDI unicaIstanza = null;		// 2)	Unico oggetto della mia classe che deve essere privato e statico 
 															//		(per accedere all’unico oggetto devo usare getInstance()) 
 	
+	
 	public static FabbricaAUDI getInstance()			// 3)	Metodo statico per inizializzare il singolo oggetto
 	{
 		if(unicaIstanza == null)
 		{
-			try {
-				unicaIstanza = (FabbricaAUDI)  factoryClass.newInstance();		// E' come se fosse una new senza conoscere la classe
-			} catch (InstantiationException e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
+				unicaIstanza = new FabbricaAUDI();	// E' come se fosse una new senza conoscere la classe
 		}
+	
 		return unicaIstanza;
 		
 	}
@@ -41,6 +35,19 @@ public class FabbricaAUDI extends FabbricaAuto
 		factoryClass = fc;
 	}
 	
+	
+	private String value; 
+	
+
+	public String getValue() {
+		return value;
+	}
+
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+
 
 	
 	public SportivaAUDI creaSportiva() {

@@ -13,16 +13,9 @@ public class FabbricaMERCEDES extends FabbricaAuto
 	{
 		if(unicaIstanza == null)
 		{
-			try {
-				unicaIstanza = (FabbricaMERCEDES)  factoryClass.newInstance();		// E' come se fosse una new senza conoscere la classe
-			} catch (InstantiationException e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
+				unicaIstanza = new FabbricaMERCEDES();	// E' come se fosse una new senza conoscere la classe
 		}
+	
 		return unicaIstanza;
 		
 	}
@@ -41,6 +34,19 @@ public class FabbricaMERCEDES extends FabbricaAuto
 		factoryClass = fc;
 	}
 	
+	
+	private String value; 
+	
+
+	public String getValue() {
+		return value;
+	}
+
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+
 
 	
 	public UtilitariaMercedes creaUtilitaria() {

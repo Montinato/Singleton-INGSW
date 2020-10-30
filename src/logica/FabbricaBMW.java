@@ -13,20 +13,12 @@ public class FabbricaBMW extends FabbricaAuto
 	{
 		if(unicaIstanza == null)
 		{
-			try {
-				unicaIstanza = (FabbricaBMW)  factoryClass.newInstance();		// E' come se fosse una new senza conoscere la classe
-			} catch (InstantiationException e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
+				unicaIstanza = new FabbricaBMW();	// E' come se fosse una new senza conoscere la classe
 		}
+	
 		return unicaIstanza;
 		
 	}
-	
 	// Con i punti 2) e ) creo il Singleton
 	
 	
@@ -41,6 +33,18 @@ public class FabbricaBMW extends FabbricaAuto
 		factoryClass = fc;
 	}
 	
+	private String value; 
+	
+
+	public String getValue() {
+		return value;
+	}
+
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+
 
 	public UtilitariaBMW creaUtilitaria() {
 		return new UtilitariaBMW();
@@ -57,6 +61,7 @@ public class FabbricaBMW extends FabbricaAuto
 		// TODO BMW-generated method stub
 		return new SuvBMW();
 	}
+
 
 
 

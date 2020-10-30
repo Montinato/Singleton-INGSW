@@ -3,7 +3,7 @@ package logica;
 public class SportivaMercedes extends Sportiva
 {
 
-	public SportivaMercedes() { nome(); descrizione(); }
+	public SportivaMercedes() {  }
 	
 	
 	public void nome() {

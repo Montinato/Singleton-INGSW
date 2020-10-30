@@ -2,7 +2,7 @@ package logica;
 
 public class FabbricaAuto {
 	
-	private FabbricaAuto() { }			// 1)	Protezione della creazione ( sennò non è un Singleton ma una variante )
+			// 1)	Protezione della creazione ( sennò non è un Singleton ma una variante )
 	
 	
 	private static FabbricaAuto unicaIstanza = null;		// 2)	Unico oggetto della mia classe che deve essere privato e statico 
@@ -12,16 +12,9 @@ public class FabbricaAuto {
 	{
 		if(unicaIstanza == null)
 		{
-			try {
-				unicaIstanza = (FabbricaAuto)  factoryClass.newInstance();		// E' come se fosse una new senza conoscere la classe
-			} catch (InstantiationException e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
+				unicaIstanza = new FabbricaAuto();	// E' come se fosse una new senza conoscere la classe
 		}
+	
 		return unicaIstanza;
 		
 	}
@@ -39,6 +32,8 @@ public class FabbricaAuto {
 		
 		factoryClass = fc;
 	}
+	
+	public  String value = null;
 	
 	
 	public Utilitaria creaUtilitaria() { return new Utilitaria(); }
